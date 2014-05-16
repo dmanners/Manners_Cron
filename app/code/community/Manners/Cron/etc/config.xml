@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Manners_Cron>
+            <version>0.1.0</version>
+        </Manners_Cron>
+    </modules>
+    <global>
+        <models>
+            <manners_cron>
+                <class>Manners_Cron_Model</class>
+            </manners_cron>
+            <cron>
+                <rewrite>
+                    <schedule>Manners_Cron_Model_Schedule</schedule>
+                </rewrite>
+            </cron>
+        </models>
+        <events>
+            <set_cron_expression_before>
+                <observers>
+                    <manners_cron>
+                        <type>singleton</type>
+                        <class>manners_cron/observer</class>
+                        <method>setCronExpressionBefore</method>
+                    </manners_cron>
+                </observers>
+            </set_cron_expression_before>
+        </events>
+    </global>
+</config>
